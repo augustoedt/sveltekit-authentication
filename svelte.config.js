@@ -8,11 +8,11 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
 		// csrf added to works on Stackblitz, remove when deploy
-		// csrf: {
-		// 	checkOrigin: false
-		// }
+		csrf: {
+			checkOrigin: false
+		}
 	}
 };
 
