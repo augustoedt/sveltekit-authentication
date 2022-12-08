@@ -52,5 +52,6 @@ export const load: PageServerLoad = ({ locals }) => {
 };
 ```
 ## Try on Stackblitz
+username: `a@a.com` password: `a`
 [https://stackblitz.com/github/augustoedt123/sveltekit-authentication](https://stackblitz.com/github/augustoedt123/sveltekit-authentication)
 
