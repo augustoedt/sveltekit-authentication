@@ -51,7 +51,6 @@ export const load: PageServerLoad = ({ locals }) => {
 	};
 };
 ```
-## Try on Stackblit`
-
-[https://stackblitz.com/github/augustoedt1213/sveltekit-authentication](https://stackblitz.com/github/augustoedt1213/sveltekit-authentication)
+## Try on Stackblitz
+[https://stackblitz.com/github/augustoedt123/sveltekit-authentication](https://stackblitz.com/github/augustoedt123/sveltekit-authentication)
 
