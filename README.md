@@ -37,3 +37,18 @@ export const handle: Handle = async ({ event, resolve }) => {
 	return response;
 };
 ```
+
+## On protected routes create `page.server.ts`
+
+In this example profile its a protected route, to prevent unauthorized access
+the logic can be made like the example bellow:
+
+```typescript
+export const load: PageServerLoad = ({ locals }) => {
+	if (!locals.user) throw redirect(302, '/login');
+	return {
+		user: locals.user
+	};
+};
+```
+
