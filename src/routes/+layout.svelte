@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Nav from '$lib/components/Nav.svelte';
-	</script>
+	import type { LayoutData } from './$types';
+	export let data: LayoutData;
+</script>
 
-<Nav />
+<Nav user = {data.user}/>
 <main>
 	<slot />
 </main>

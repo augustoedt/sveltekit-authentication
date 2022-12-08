@@ -7,4 +7,6 @@ export type User = {
 export type NavHeader = {
 	label: string;
 	url: string;
+	showLogged: boolean;
+	showNotLogged: boolean;
 };

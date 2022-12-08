@@ -3,14 +3,20 @@ import type { NavHeader } from './types';
 export const navHeaders: NavHeader[] = [
 	{
 		label: 'Home',
-		url: '/'
+		url: '/',
+		showLogged: true,
+		showNotLogged: true
 	},
 	{
 		label: 'Login',
-		url: '/login'
+		url: '/login',
+		showLogged: false,
+		showNotLogged: true
 	},
 	{
 		label: 'Profile',
-		url: '/profile'
+		url: '/profile',
+		showLogged: true,
+		showNotLogged: false
 	}
 ];
