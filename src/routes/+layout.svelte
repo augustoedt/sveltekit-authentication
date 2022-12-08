@@ -1,8 +1,8 @@
-<script>
-	import Navigator from '$lib/components/Navigator.svelte';
-</script>
+<script lang="ts">
+	import Nav from '$lib/components/Nav.svelte';
+	</script>
 
-<Navigator />
+<Nav />
 <main>
 	<slot />
 </main>

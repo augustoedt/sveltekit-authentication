@@ -3,3 +3,8 @@ export type User = {
 	name: string;
 	id: string;
 };
+
+export type NavHeader = {
+	label: string;
+	url: string;
+};

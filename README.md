@@ -1,38 +1,39 @@
-# create-svelte
+# Svelte.kit Authentication
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## How it authenticates:
 
-## Creating a project
+Basically the application after a succefull login its saves a cookie that its checked if exist on every application request by `hooks.server.ts`. When you try to access private data through url, its automatically check if you have a token and if it grants you access to read it. This access control can be made by `+page.server.ts` for each page.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Creating user type:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The first step to event.locals recognize user its to create a User type on `./src/lib/types.ts` and register user type on `./src/app.d.ts`
 
-# create a new project in my-app
-npm create svelte@latest my-app
+```typescript
+// ./src/app.d.ts
+// See https://kit.svelte.dev/docs/types#app
+// for information about these interfaces
+// and what to do when importing types
+declare namespace App {
+	// interface Error {}
+	interface Locals {
+		user: import('$lib/types').User | undefined;
+	}
+	// interf`ce PageData {}
+	// interface Platform {}
+}
 ```
 
-## Developing
+## Create `./src/hooks.server.ts`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+This file will run when the application starts up. Inside the hooks.server.ts, handle function tries to get jwt cookie that its created when you successful log in `./src/pages/login/+page.svelte`
 
-```bash
-npm run dev
+```typescript
+import type { Handle } from '@sveltejs/kit';
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+export const handle: Handle = async ({ event, resolve }) => {
+	const jwt = event.cookies.get('jwt');
+	event.locals.user = jwt && JSON.parse(atob(jwt));
+	const response = await resolve(event);
+	return response;
+};
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
