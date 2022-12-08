@@ -9,6 +9,10 @@ const config = {
 
 	kit: {
 		adapter: adapter()
+		// csrf added to works on Stackblitz, remove when deploy
+		// csrf: {
+		// 	checkOrigin: false
+		// }
 	}
 };
 

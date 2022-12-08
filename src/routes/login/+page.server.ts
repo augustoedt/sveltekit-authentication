@@ -25,7 +25,7 @@ export const actions: Actions = {
 		 */
 
 		if (password != 'a' || email != 'a@a.com') {
-			return invalid(400, { email, incorrect: 'Senha ou Email incorretos' });
+			return invalid(400, { email, incorrect: 'Password or email are incorrect.' });
 		}
 		/*
 		 ** AccessToken for your Authorization header request on your
@@ -33,7 +33,7 @@ export const actions: Actions = {
 		 */
 		const user = {
 			email: 'a@a.com',
-			name: 'abcd',
+			name: 'Augusto Eduardo Torres',
 			id: 'a',
 			role: 'admin',
 			accessToken: 'abcde123456'
